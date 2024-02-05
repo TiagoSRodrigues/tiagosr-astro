@@ -119,11 +119,22 @@ const tiagoData = {
   <Container>
     <Sectionhead>
       <Fragment slot="title">About Me</Fragment>
+      
       <Fragment slot="desc">{tiagoData.bio}</Fragment>
-    </Sectionhead>
 
-    <!-- <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <Picture
+    </Sectionhead>
+    
+    <!-- <h2 class="font-bold text-3xl text-center text-gray-800 mt-6">
+      {tiagoData.name}
+    </h2>
+    <h3 class="text-xl text-center text-slate-500 mb-6">
+      {tiagoData.title}
+    </h3> -->
+    <p class="text-center text-lg leading-relaxed text-slate-500">
+      {tiagoData.lifePath}
+    </p>
+    <!-- <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16"> -->
+      <!--Picture
         src={tiagoData.avatar.src}
         alt={tiagoData.avatar.alt}
         width={400}
@@ -131,16 +142,7 @@ const tiagoData = {
         class="rounded-full mx-auto"
       /> -->
 
-      <h2 class="font-bold text-3xl text-center text-gray-800 mt-6">
-        {tiagoData.name}
-      </h2>
-      <h3 class="text-xl text-center text-slate-500 mb-6">
-        {tiagoData.title}
-      </h3>
-      <p class="text-center text-lg leading-relaxed text-slate-500">
-        {tiagoData.lifePath}
-      </p>
-    </div>
+    <!-- </div> -->
 
     <!-- Work Experience Section -->
     <!-- <div class="my-12">
