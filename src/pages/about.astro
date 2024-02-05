@@ -13,7 +13,7 @@ function formatUrl(url) {
 // Tiago's data for the presentation page
 const tiagoData = {
   avatar: {
-    src: "assets/avatar.png", // path to the image file
+    src: "/assets/avatar.png", // path to the image file
     alt: "Tiago S Rodrigues",
   },
   name: "Tiago S Rodrigues",
@@ -122,14 +122,14 @@ const tiagoData = {
       <Fragment slot="desc">{tiagoData.bio}</Fragment>
     </Sectionhead>
 
-    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+    <!-- <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <Picture
         src={tiagoData.avatar.src}
         alt={tiagoData.avatar.alt}
         width={400}
         height={400}
         class="rounded-full mx-auto"
-      />
+      /> -->
 
       <h2 class="font-bold text-3xl text-center text-gray-800 mt-6">
         {tiagoData.name}
