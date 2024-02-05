@@ -1,0 +1,105 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+---
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
+
+  .div404 {
+    animation: glitch 1s linear infinite;
+  }
+
+  @keyframes glitch {
+
+    2%,
+    64% {
+      transform: translate(2px, 0) skew(0deg);
+    }
+
+    4%,
+    60% {
+      transform: translate(-2px, 0) skew(0deg);
+    }
+
+    62% {
+      transform: translate(0, 0) skew(5deg);
+    }
+  }
+
+  .div404:before,
+  .div404:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+  }
+
+  .div404:before {
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  }
+
+  @keyframes glitchTop {
+
+    2%,
+    64% {
+      transform: translate(2px, -2px);
+    }
+
+    4%,
+    60% {
+      transform: translate(-2px, 2px);
+    }
+
+    62% {
+      transform: translate(13px, -1px) skew(-13deg);
+    }
+  }
+
+  .div404:after {
+    animation: glitchBotom 1.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  }
+
+  @keyframes glitchBotom {
+
+    2%,
+    64% {
+      transform: translate(-2px, 0);
+    }
+
+    4%,
+    60% {
+      transform: translate(-2px, 0);
+    }
+
+    62% {
+      transform: translate(-22px, 5px) skew(21deg);
+    }
+  }
+</style>
+<Layout title="404 Not Found">
+  <div class="div404">
+    <Container>
+      <div class="min-h-[calc(100vh-16rem)] flex items-center justify-center">
+        <div class="mt-16 text-center">
+          <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">404</h1>
+          <p class="text-lg mt-4 text-slate-600">I think you may be lost.</p>
+          <h3>You will be redirected in <span id="countdown">0</span> seconds!</h3>
+          <script>
+            function countdown404() {
+              var seconds = 10; function tick() { 
+                var counter = document.getElementById("countdown");
+                 seconds--; counter.innerHTML = seconds;
+                  if (seconds > 0) { setTimeout(tick, 1000) } else {
+                     window.location.href = "https://www.tiagosr.eu" } }
+              tick()
+            }
+
+            countdown404()</script>
+        </div>
+    </Container>
+  </div>
+</Layout>
+</div>

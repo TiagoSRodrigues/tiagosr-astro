@@ -1,0 +1,205 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+
+// Function to format URLs to include 'http://' if missing
+function formatUrl(url) {
+  return url.startsWith('http') ? url : `http://${url}`;
+}
+// Tiago's data for the presentation page
+const tiagoData = {
+  avatar: {
+    src: "/src/assets/avatar.png", // path to the image file
+    alt: "Tiago S Rodrigues",
+  },
+  name: "Tiago S Rodrigues",
+  title: "Systems Engineer & DevOps Specialist",
+  bio: "As an engineer, my mission is to creatively solve problems and drive technological advancement. Now I'm focused on DevOps and solutions architecture, but I've got a background in Chemistry and industrial management engineering, which I use everyday to create value to society.",
+  workExperience: [
+    {
+      role: "Systems Analyst",
+      company: "Novobanco",
+      dimensions: [
+        {
+          name: "API Management",
+          description:
+            "In API management, I dedicated myself to preparing infrastructure, ensuring technical standards were met, and enhancing team communication for effective API deployment. A standout achievement was my involvement in upgrading API governance, encompassing the integration of new tools and crafting of governance rules. This role refined my skills in collaboration, technical proficiency, and project management, crucial for ensuring seamless API operations across various departments.",
+          softSkills: [
+            "Proactivity",
+            "Effective Communication",
+            "Teamwork",
+            "Analytical Thinking",
+          ],
+          hardSkills: [
+            "IBM API Connect",
+            "OSI Model",
+            "TLS/SSL",
+            "API Security",
+          ],
+        },
+        {
+          name: "Monitoring",
+          description:
+            "As part of the monitoring team, my focus was on project management, process optimization, and specialist collaboration. My responsibilities included managing project timelines, fostering efficient workflows, and coordinating with technical experts to enhance system monitoring. My approach of enabling agile responses and quick decision-making significantly improved operational efficiency and system reliability.",
+          softSkills: [
+            "Effective Communication",
+            "Teamwork",
+            "Critical Thinking",
+            "Leadership",
+          ],
+          hardSkills: ["CheckMk", "Project Management", "Networking"],
+        },
+        {
+          name: "Automation",
+          description:
+            "A significant personal achievement involved adapting Apache Airflow to our company's specific needs. This complex task required establishing governance for the infrastructure, deploying it in OpenShift with effective team segregation, managing secrets, and supervising code versioning. My efforts were instrumental in enhancing monitoring capabilities, improving workflow automation, and strengthening infrastructure management, significantly advancing our technological infrastructure and operational efficiency.",
+          softSkills: [
+            "Effective Communication",
+            "Teamwork",
+            "Critical Thinking",
+            "Value Orientation",
+          ],
+          hardSkills: [
+            "Airflow",
+            "Python programming",
+            "Project Management",
+            "Governance design",
+          ],
+        },
+      ],
+      companyUrl: "novobanco.pt",
+    },
+    {
+      role: "Data Analyst",
+      company: "Novobanco",
+      description:
+        "My primary focus was on articulating functional requirements, crafting PL/SQL tests, and designing MicroStrategy dashboards. This multifaceted approach was pivotal in elevating data accuracy and delivering insightful analytics, thus empowering informed decision-making within the company.",
+      softSkills: [
+        "Proactivity",
+        "Teamwork",
+        "Analytical Thinking",
+        "Value Orientation",
+      ],
+      hardSkills: ["Oracle", "PL/SQL", "MicroStrategy"],
+      companyUrl: "novobanco.pt",
+    },
+  ],
+  education: [
+    {
+      degree: "Postgraduation in Software and Information Systems Engineering",
+      institution: "IST - Instituto Superior Técnico - Universidade de Lisboa",
+      description:
+        "42 ECTS | Course focused on the management and operation of organizations from a systems engineering perspective.",
+      url: "https://tecnicomais.pt/cursos/engenharia-de-software-e-dos-sistemas-de-informacao-empresariais-sise/",
+    },
+    {
+      degree: "Industrial Engineering and Management MSc",
+      institution: "ISEL - Instituto Superior de Engenharia de Lisboa",
+      description:
+        "120 ECTS | Integrated vision of production and services systems management, with focus in systems's design and collaborate in the creation, development, implementation, and improvement of integrated systems.",
+      url: "https://www.isel.pt/en/curso/bsc-degree/chemical-and-biological-engineering",
+    },
+    {
+      degree: "Chemical and Biological Engineering BSc",
+      institution: "ISEL - Instituto Superior de Engenharia de Lisboa",
+      description:
+        "180 ECTS | Chemical engineering elegantly combines mathematics and natural sciences to transform materials and nature's forces, aiming to enhance human life through innovative, practical solutions.",
+      url: "https://www.isel.pt/en/curso/masters-degree/master-industrial-engineering-and-management",
+    },
+  ],
+  lifePath: "⬇️ Check my life path below ⬇️",
+};
+---
+
+<Layout title="About">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">About Me</Fragment>
+      <Fragment slot="desc">{tiagoData.bio}</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <Picture
+        src={tiagoData.avatar.src}
+        alt={tiagoData.avatar.alt}
+        width={400}
+        height={400}
+        class="rounded-full mx-auto"
+      />
+
+      <h2 class="font-bold text-3xl text-center text-gray-800 mt-6">
+        {tiagoData.name}
+      </h2>
+      <h3 class="text-xl text-center text-slate-500 mb-6">
+        {tiagoData.title}
+      </h3>
+      <p class="text-center text-lg leading-relaxed text-slate-500">
+        {tiagoData.lifePath}
+      </p>
+    </div>
+
+    <!-- Work Experience Section -->
+    <!-- <div class="my-12">
+      <Sectionhead>
+        <Fragment slot="desc">{tiagoData.workExperience}        </Fragment>
+      </Sectionhead> -->
+      <!-- Add Work Experience Details Here -->
+      <!-- </div> -->
+      
+      <!-- Work Experience Section -->
+      <div class="my-12">
+        <Sectionhead>
+        <Fragment slot="title">Work Experience</Fragment>
+        <!-- <h2 slot="title">Work Experience</h2> -->
+        <p slot="desc">
+        </p>
+      </Sectionhead>
+      {tiagoData.workExperience && tiagoData.workExperience.length > 0 ? (
+        tiagoData.workExperience.map((experience) => (
+          <div key={experience.role}>
+            <h3 class="text-xl font-bold">{experience.role} at {experience.company}</h3>
+            <a href={formatUrl(experience.companyUrl)} target="_blank" rel="noopener noreferrer">{experience.companyUrl}</a>
+            {experience.dimensions && experience.dimensions.length > 0 && (
+              experience.dimensions.map((dimension) => (
+                <div key={dimension.name}>
+                  <h4 class="text-lg font-bold">{dimension.name}</h4>
+                  <p>{dimension.description}</p>
+                  <p><strong>Soft Skills:</strong> {dimension.softSkills.join(', ')}</p>
+                  <p><strong>Hard Skills:</strong> {dimension.hardSkills.join(', ')}</p>
+                </div>
+              ))
+            )}
+          </div>
+        ))
+      ) : (
+        <p>No work experience data available.</p>
+      )}
+    </div>
+      <!-- Add Education Details Here -->
+       <div class="my-12">
+        <Sectionhead>
+        <Fragment slot="title">Education</Fragment>
+        <!-- <h2 slot="title">Work Experience</h2> -->
+        <p slot="desc">
+        </p>
+      </Sectionhead>
+      {tiagoData.education && tiagoData.education.length > 0 ? (
+        tiagoData.education.map((experience) => (
+          <div key={experience.degree}>
+            <h3 class="text-xl font-bold">{experience.degree}</h3>
+            <strong><a href={formatUrl(experience.url)} target="_blank" rel="noopener noreferrer"> {experience.institution}</a>
+            </strong>
+              <p>{experience.description}</p>
+          </div>
+        ))
+      ) : (
+        <p>No work experience data available.</p>
+      )}
+    </div>
+    </div>
+  </Container>
+</Layout>
