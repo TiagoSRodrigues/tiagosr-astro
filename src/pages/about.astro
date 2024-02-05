@@ -4,7 +4,6 @@ import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
-import avatar from "assets/avatar.png";
 
 
 // Function to format URLs to include 'http://' if missing
@@ -13,10 +12,10 @@ function formatUrl(url) {
 }
 // Tiago's data for the presentation page
 const tiagoData = {
-  avatar: {
-    src: {avatar}, // path to the image file
-    alt: "Tiago S Rodrigues",
-  },
+  // avatar: {
+  //   src: "assets/avatar.png", // path to the image file
+  //   alt: "Tiago S Rodrigues",
+  // },
   name: "Tiago S Rodrigues",
   title: "DevOps Engineer",
   bio: "As an engineer, my mission is to creatively solve problems and drive technological advancement. Now I'm focused on DevOps and solutions architecture, but I've got a background in Chemistry and industrial management engineering, which I use everyday to create value to society.",
