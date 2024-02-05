@@ -11,7 +11,7 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
-  "assets/site-screenshot.png",
+  "site-screenshot.png",
   Astro.site
 ).toString();
 
@@ -30,7 +30,7 @@ const makeTitle = title
     <link rel="icon" type="image/svg+xml" href="public/favicon.png" />
     <meta name="generator" content={Astro.generator} />
 
-    <link rel="preload" as="image" href='assets/site-screenshot.png' />
+    <!-- <link rel="preload" as="image" href='public/site-screenshot.png' /> -->
     <SEO
       title={makeTitle}
       description="Tiago Silva Rodrigues personal page."
