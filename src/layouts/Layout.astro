@@ -11,7 +11,7 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
+  "assets/site-screenshot.png",
   Astro.site
 ).toString();
 
@@ -39,7 +39,7 @@ const makeTitle = title
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Tiago Silva Rodrigues`,
+          title: `Tiago Silva Rodrigues | DevOps Eng`,
           image: resolvedImageWithDomain,
         },
         image: {
