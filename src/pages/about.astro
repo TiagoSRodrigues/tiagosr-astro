@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import avatar from "assets/avatar.png";
 
 
 // Function to format URLs to include 'http://' if missing
@@ -13,7 +14,7 @@ function formatUrl(url) {
 // Tiago's data for the presentation page
 const tiagoData = {
   avatar: {
-    src: "/src/assets/avatar.png", // path to the image file
+    src: {avatar}, // path to the image file
     alt: "Tiago S Rodrigues",
   },
   name: "Tiago S Rodrigues",
