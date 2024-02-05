@@ -13,4 +13,5 @@ This project reflects my expertise and innovative approach in software developme
 ## Credits:
 
 Thanks to [Web3Templates](https://web3templates.com) for the this Free Template
+
 [![Built with Astro](https://astro.badg.es/v1/built-with-astro.svg)](https://astro.build)
